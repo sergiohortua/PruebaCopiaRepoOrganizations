@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View-apto — Galería 360</title>
+    <meta name="description" content="Galería de fotos 360 y recorrido virtual entre ambientes.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.15.1/index.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js",
+          "@photo-sphere-viewer/core": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.15.1/index.module.js",
+          "@photo-sphere-viewer/gyroscope-plugin": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/gyroscope-plugin@5.15.1/index.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="va-encabezado">
+      <div class="va-encabezado-fila">
+        <a class="va-marca" href="index.html">
+          <img src="favicon.svg" alt="">
+          View-apto
+        </a>
+        <nav class="va-nav" aria-label="Principal">
+          <a href="index.html" aria-current="page">Galería</a>
+          <a href="tour.html">Recorrido</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="va-principal">
+      <section class="va-hero">
+        <h1>Mira el apartamento en 360</h1>
+        <p>
+          Arrastra la imagen para girar. En el celular también puedes usar el giroscopio.
+          Entra a cada ambiente o recorre las habitaciones siguiendo las flechas.
+          El recorrido empieza en la sala y la cocina.
+        </p>
+        <div class="va-acciones">
+          <a class="va-boton" href="tour.html">Ver recorrido</a>
+        </div>
+      </section>
+
+      <section class="va-seccion" aria-labelledby="titulo-galeria">
+        <h2 id="titulo-galeria">Ambientes</h2>
+        <div id="lista-galeria" class="va-galeria"></div>
+        <p class="va-nota">
+          Las fotos de ahora son de ejemplo. Cámbialas por las tuyas en
+          <code>imagenes/</code> con estos nombres:
+          <code>sala-cocina.jpg</code>,
+          <code>habitacion1.jpg</code>,
+          <code>habitacion2.jpg</code>,
+          <code>habitacion-principal.jpg</code>.
+        </p>
+      </section>
+    </main>
+
+    <footer class="va-pie">
+      View-apto — visor 360 estático. Sin servidor ni base de datos.
+    </footer>
+
+    <div id="visor-modal" class="va-modal" hidden>
+      <div class="va-modal-barra">
+        <h2 id="visor-titulo">Ambiente</h2>
+        <button id="visor-cerrar" class="va-modal-cerrar" type="button" aria-label="Cerrar visor">×</button>
+      </div>
+      <div id="visor" class="va-visor"></div>
+    </div>
+
+    <noscript>
+      <p class="va-principal">Necesitas JavaScript para ver las fotos 360.</p>
+    </noscript>
+    <script type="module" src="js/galeria.js"></script>
+  </body>
+</html>

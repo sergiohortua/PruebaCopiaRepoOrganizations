@@ -1,0 +1,447 @@
+:root {
+  --fondo: #f3eee6;
+  --fondo-oscuro: #1c1917;
+  --tinta: #1c1917;
+  --suave: #6b635b;
+  --linea: #d9d0c4;
+  --tarjeta: #fffdf8;
+  --acento: #c2410c;
+  --acento-suave: #f4e4d6;
+  --radio: 14px;
+  --max: 1080px;
+  --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: var(--sans);
+  color: var(--tinta);
+  background: var(--fondo);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.va-encabezado {
+  border-bottom: 1px solid var(--linea);
+  background: var(--tarjeta);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.va-encabezado-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+}
+
+.va-marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.va-marca img {
+  width: 28px;
+  height: 28px;
+}
+
+.va-nav {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.va-nav a {
+  text-decoration: none;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.va-nav a:hover,
+.va-nav a[aria-current="page"] {
+  background: var(--acento-suave);
+}
+
+.va-principal {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.va-hero {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  max-width: 38rem;
+}
+
+.va-hero h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  line-height: 1.15;
+  font-weight: 650;
+}
+
+.va-hero p {
+  margin: 0;
+  color: var(--suave);
+}
+
+.va-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.va-boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--fondo-oscuro);
+  color: #f6f1e8;
+}
+
+.va-boton:hover {
+  background: #000;
+}
+
+.va-boton-secundario {
+  background: transparent;
+  color: var(--tinta);
+  border-color: var(--linea);
+}
+
+.va-boton-secundario:hover {
+  background: var(--acento-suave);
+}
+
+.va-seccion h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.15rem;
+}
+
+.va-galeria {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.va-tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  overflow: hidden;
+  padding: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.va-tarjeta:hover,
+.va-tarjeta:focus-visible {
+  border-color: var(--acento);
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+.va-tarjeta img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #ddd4c8;
+}
+
+.va-tarjeta-cuerpo {
+  padding: 0.85rem 1rem 1rem;
+}
+
+.va-tarjeta h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+}
+
+.va-tarjeta p {
+  margin: 0;
+  color: var(--suave);
+  font-size: 0.92rem;
+}
+
+.va-nota {
+  margin-top: 1.5rem;
+  color: var(--suave);
+  font-size: 0.92rem;
+}
+
+.va-pie {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1.25rem 2rem;
+  color: var(--suave);
+  font-size: 0.85rem;
+}
+
+.va-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  background: #111;
+}
+
+.va-modal[hidden] {
+  display: none;
+}
+
+.va-modal-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 52px;
+  padding: 0.4rem 0.75rem;
+  background: var(--fondo-oscuro);
+  color: #f6f1e8;
+}
+
+.va-modal-barra h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.va-modal-cerrar {
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: #2a2623;
+  color: #f6f1e8;
+  font: inherit;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.va-visor {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body.va-tour {
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.va-tour-capa {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.va-tour-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 52px;
+  padding: 0.35rem 0.75rem;
+  background: var(--fondo-oscuro);
+  color: #f6f1e8;
+  flex-shrink: 0;
+}
+
+.va-tour-barra a {
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.7rem;
+  border-radius: 999px;
+}
+
+.va-tour-barra a:hover {
+  background: #2a2623;
+}
+
+.va-tour-barra strong {
+  font-weight: 600;
+}
+
+.va-tour-ayuda {
+  display: none;
+  font-size: 0.85rem;
+  color: #d6cdc3;
+}
+
+.va-tour-visor {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+.va-tour-visor .psv-container {
+  height: 100%;
+}
+
+.va-tour-visor .psv-canvas {
+  background: #111;
+}
+
+.va-tour-visor .psv-virtual-tour-arrows {
+  background: transparent;
+  transform: none;
+}
+
+.va-tour-visor .va-flecha,
+.va-tour-visor .psv-virtual-tour-arrow {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.va-tour-visor .va-flecha-izq svg {
+  transform: rotate(-90deg);
+}
+
+.va-calibrar {
+  position: fixed;
+  right: 12px;
+  bottom: 64px;
+  z-index: 50;
+  width: min(320px, calc(100vw - 24px));
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(28, 25, 23, 0.92);
+  color: #f6f1e8;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.va-calibrar p {
+  margin: 0 0 0.35rem;
+}
+
+.va-calibrar-titulo {
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.va-calibrar code {
+  display: block;
+  margin: 0.15rem 0 0;
+  padding: 0.35rem 0.45rem;
+  border-radius: 6px;
+  background: #2a2623;
+  font-size: 0.78rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.va-calibrar button {
+  margin: 0.55rem 0 0.35rem;
+  min-height: 40px;
+  padding: 0.4rem 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  background: #f6f1e8;
+  color: #1c1917;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.va-calibrar-ayuda {
+  color: #d6cdc3;
+  font-size: 0.78rem;
+}
+
+.va-giroscopio-aviso {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 72px;
+  z-index: 60;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(28, 25, 23, 0.94);
+  color: #f6f1e8;
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+button.va-giroscopio-aviso {
+  min-height: 48px;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .va-tour-ayuda {
+    display: inline;
+  }
+
+  .va-galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .va-tarjeta img {
+    height: 200px;
+  }
+}
+
+@media (min-width: 960px) {
+  .va-galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto;
+  }
+}
